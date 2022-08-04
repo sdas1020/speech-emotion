@@ -304,7 +304,7 @@ def main():
                 #     st.write(fig2)
 
             if model_type == "mfccs":
-                st.markdown("## Predictions")
+                st.markdown("## Emotion Classifications Predictions")
                 with st.container():
                     col1, col2, col3, col4 = st.columns(4)
                     mfccs = get_mfccs(path, model.input_shape[-1])
@@ -435,75 +435,77 @@ def main():
         st.write("After that, just uncomment the relevant sections in the app.py file "
                  "to use these models:")
 
-    elif website_menu == "Our team":
-        st.subheader("Our team")
-        st.balloons()
-        col1, col2 = st.columns([3, 2])
-        with col1:
-            st.info("maria.s.startseva@gmail.com")
-            st.info("talbaram3192@gmail.com")
-            st.info("asherholder123@gmail.com")
-        with col2:
-            liimg = Image.open("images/LI-Logo.png")
-            st.image(liimg)
-            st.markdown(f""":speech_balloon: [Maria Startseva](https://www.linkedin.com/in/maria-startseva)""",
-                        unsafe_allow_html=True)
-            st.markdown(f""":speech_balloon: [Tal Baram](https://www.linkedin.com/in/tal-baram-b00b66180)""",
-                        unsafe_allow_html=True)
-            st.markdown(f""":speech_balloon: [Asher Holder](https://www.linkedin.com/in/asher-holder-526a05173)""",
-                        unsafe_allow_html=True)
+    # elif website_menu == "Our team":
+    #     st.subheader("Our team")
+    #     st.balloons()
+    #     col1, col2 = st.columns([3, 2])
+    #     with col1:
+    #         st.info("maria.s.startseva@gmail.com")
+    #         st.info("talbaram3192@gmail.com")
+    #         st.info("asherholder123@gmail.com")
+    #     with col2:
+    #         liimg = Image.open("images/LI-Logo.png")
+    #         st.image(liimg)
+    #         st.markdown(f""":speech_balloon: [Maria Startseva](https://www.linkedin.com/in/maria-startseva)""",
+    #                     unsafe_allow_html=True)
+    #         st.markdown(f""":speech_balloon: [Tal Baram](https://www.linkedin.com/in/tal-baram-b00b66180)""",
+    #                     unsafe_allow_html=True)
+    #         st.markdown(f""":speech_balloon: [Asher Holder](https://www.linkedin.com/in/asher-holder-526a05173)""",
+    #                     unsafe_allow_html=True)
 
-    elif website_menu == "Leave feedback":
-        st.subheader("Leave feedback")
-        user_input = st.text_area("Your feedback is greatly appreciated")
-        user_name = st.selectbox("Choose your personality", ["checker1", "checker2", "checker3", "checker4"])
+    # elif website_menu == "Leave feedback":
+    #     st.subheader("Leave feedback")
+    #     user_input = st.text_area("Your feedback is greatly appreciated")
+    #     user_name = st.selectbox("Choose your personality", ["checker1", "checker2", "checker3", "checker4"])
 
-        if st.button("Submit"):
-            st.success(f"Message\n\"\"\"{user_input}\"\"\"\nwas sent")
+    #     if st.button("Submit"):
+    #         st.success(f"Message\n\"\"\"{user_input}\"\"\"\nwas sent")
 
-            if user_input == "log123456" and user_name == "checker4":
-                with open("log0.txt", "r", encoding="utf8") as f:
-                    st.text(f.read())
-            elif user_input == "feedback123456" and user_name == "checker4":
-                with open("log.txt", "r", encoding="utf8") as f:
-                    st.text(f.read())
-            else:
-                log_file(user_name + " " + user_input)
-                thankimg = Image.open("images/sticky.png")
-                st.image(thankimg)
+    #         if user_input == "log123456" and user_name == "checker4":
+    #             with open("log0.txt", "r", encoding="utf8") as f:
+    #                 st.text(f.read())
+    #         elif user_input == "feedback123456" and user_name == "checker4":
+    #             with open("log.txt", "r", encoding="utf8") as f:
+    #                 st.text(f.read())
+    #         else:
+    #             log_file(user_name + " " + user_input)
+    #             thankimg = Image.open("images/sticky.png")
+    #             st.image(thankimg)
 
     else:
-        import requests
-        import json
+        pass
 
-        url = 'http://api.quotable.io/random'
-        if st.button("get random mood"):
-            with st.container():
-                col1, col2 = st.columns(2)
-                n = np.random.randint(1, 1000, 1)[0]
-                with col1:
-                    quotes = {"Good job and almost done": "checker1",
-                              "Great start!!": "checker2",
-                              "Please make corrections base on the following observation": "checker3",
-                              "DO NOT train with test data": "folk wisdom",
-                              "good work, but no docstrings": "checker4",
-                              "Well done!": "checker3",
-                              "For the sake of reproducibility, I recommend setting the random seed": "checker1"}
-                    if n % 5 == 0:
-                        a = np.random.choice(list(quotes.keys()), 1)[0]
-                        quote, author = a, quotes[a]
-                    else:
-                        try:
-                            r = requests.get(url=url)
-                            text = json.loads(r.text)
-                            quote, author = text['content'], text['author']
-                        except Exception as e:
-                            a = np.random.choice(list(quotes.keys()), 1)[0]
-                            quote, author = a, quotes[a]
-                    st.markdown(f"## *{quote}*")
-                    st.markdown(f"### ***{author}***")
-                with col2:
-                    st.image(image=f"https://picsum.photos/800/600?random={n}")
+        # import requests
+        # import json
+
+        # url = 'http://api.quotable.io/random'
+        # if st.button("get random mood"):
+        #     with st.container():
+        #         col1, col2 = st.columns(2)
+        #         n = np.random.randint(1, 1000, 1)[0]
+        #         with col1:
+        #             quotes = {"Good job and almost done": "checker1",
+        #                       "Great start!!": "checker2",
+        #                       "Please make corrections base on the following observation": "checker3",
+        #                       "DO NOT train with test data": "folk wisdom",
+        #                       "good work, but no docstrings": "checker4",
+        #                       "Well done!": "checker3",
+        #                       "For the sake of reproducibility, I recommend setting the random seed": "checker1"}
+        #             if n % 5 == 0:
+        #                 a = np.random.choice(list(quotes.keys()), 1)[0]
+        #                 quote, author = a, quotes[a]
+        #             else:
+        #                 try:
+        #                     r = requests.get(url=url)
+        #                     text = json.loads(r.text)
+        #                     quote, author = text['content'], text['author']
+        #                 except Exception as e:
+        #                     a = np.random.choice(list(quotes.keys()), 1)[0]
+        #                     quote, author = a, quotes[a]
+        #             st.markdown(f"## *{quote}*")
+        #             st.markdown(f"### ***{author}***")
+        #         with col2:
+        #             st.image(image=f"https://picsum.photos/800/600?random={n}")
 
 
 if __name__ == '__main__':
