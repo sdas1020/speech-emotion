@@ -305,10 +305,10 @@ def main():
 
         st.subheader("Dataset")
         txt = """
-            This web-application has capability to classify speech into 7 types of emotions. 
+            This web-application has capability to classify speech into 7 types of emotions i.e. 'fear', 'disgust', 'neutral', 'happy', 'sad', 'surprise', 'angry'. 
 
             Datasets that can be used are children's audio clips to test their emotions over a period of time.
-            Parents can then use this information to evaluate emotions of children through a day.      
+            Parents can then use this information to evaluate emotions of children over a period of time .      
             """
         st.markdown(txt, unsafe_allow_html=True)
     else:
