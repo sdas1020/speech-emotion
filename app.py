@@ -298,7 +298,7 @@ def main():
                         if gender:
                             pass
                 with st.container():
-                    if (get_title(data3, CAT3).split(":")[1].split("-")[0].strip() == "negative") and (get_title(pred, CAT6).split(":")[1].split("-")[0].strip() == "angry") and ((get_title(pred_, CAT7).split(":")[1].split("-")[0].strip()) == "disgust") :
+                    if (get_title(data3, CAT3).split(":")[1].split("-")[0].strip() == "negative") and (get_title(pred, CAT6).split(":")[1].split("-")[0].strip() == "angry") and ((get_title(pred_, CAT7).split(":")[1].split("-")[0].strip()) == ("disgust" or "fear")) :
                         st.write("## Child is undergoing anxiety and stress. Please reach out to him or consult a BH specialist.")
 
     elif website_menu == "Project description":
