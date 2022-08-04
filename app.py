@@ -190,7 +190,7 @@ def main():
                     else:
                         st.error("Unknown error")
                 else:
-                    if st.button("Try test file"):
+                    if st.button("Try Sample file"):
                         wav, sr = librosa.load("test.wav", sr=44100)
                         Xdb = get_melspec("test.wav")[1]
                         mfccs = librosa.feature.mfcc(wav, sr=sr)
