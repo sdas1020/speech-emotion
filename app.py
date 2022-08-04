@@ -164,7 +164,7 @@ def main():
 
     if website_menu == "Emotion Recognition":
         st.sidebar.subheader("Model")
-        model_type = st.sidebar.selectbox("How would you like to predict?", ("mfccs"))
+        model_type = st.sidebar.selectbox("How would you like to predict?", ("mfccs", ""))
         em3 = em6 = em7 = gender = False
         st.sidebar.subheader("Settings")
 
