@@ -299,9 +299,7 @@ def main():
                             pass
                 with st.container():
                     
-                    if get_title(data3, CAT3).split(":")[1].split("-")[0] == "negative" and 
-                    get_title(pred, CAT6).split(":")[1].split("-")[0] == "angry" and 
-                    get_title(pred_, CAT7).split(":")[1].split("-")[0]) == "disgust":
+                    if (get_title(data3, CAT3).split(":")[1].split("-")[0] == "negative") and (get_title(pred, CAT6).split(":")[1].split("-")[0] == "angry") and ((get_title(pred_, CAT7).split(":")[1].split("-")[0]) == "disgust") :
                         st.write("Child is undergoing anxiety and stress ")
 
     elif website_menu == "Project description":
