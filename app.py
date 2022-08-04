@@ -222,15 +222,6 @@ def main():
                     # st.write(fig)
                 else:
                     pass
-            
-            #     st.write("Record audio file")
-            #     if st.button('Record'):
-            #         with st.spinner(f'Recording for 5 seconds ....'):
-            #             st.write("Recording...")
-            #             time.sleep(3)
-            #         st.success("Recording completed")
-            #         st.write("Error while loading the file")
-
         if model_type == "mfccs":
             em3 = st.sidebar.checkbox("3 emotions", True)
             em6 = st.sidebar.checkbox("6 emotions", True)
@@ -242,37 +233,6 @@ def main():
 
         else:
             st.sidebar.warning("This model is temporarily disabled")
-
-        # with st.sidebar.expander("Change colors"):
-        #     st.sidebar.write("Use this options after you got the plots")
-        #     col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
-        #
-        #     with col1:
-        #         a = st.color_picker("Angry", value="#FF0000")
-        #     with col2:
-        #         f = st.color_picker("Fear", value="#800080")
-        #     with col3:
-        #         d = st.color_picker("Disgust", value="#A52A2A")
-        #     with col4:
-        #         sd = st.color_picker("Sad", value="#ADD8E6")
-        #     with col5:
-        #         n = st.color_picker("Neutral", value="#808080")
-        #     with col6:
-        #         sp = st.color_picker("Surprise", value="#FFA500")
-        #     with col7:
-        #         h = st.color_picker("Happy", value="#008000")
-        #     if st.button("Update colors"):
-        #         global COLOR_DICT
-        #         COLOR_DICT = {"neutral": n,
-        #                       "positive": h,
-        #                       "happy": h,
-        #                       "surprise": sp,
-        #                       "fear": f,
-        #                       "negative": a,
-        #                       "angry": a,
-        #                       "sad": sd,
-        #                       "disgust": d}
-        #         st.success(COLOR_DICT)
 
         if audio_file is not None:
             st.markdown("## Analyzing Audio Data...")
@@ -293,16 +253,6 @@ def main():
                     plt.gca().axes.spines["left"].set_visible(False)
                     plt.gca().axes.spines["top"].set_visible(False)
                     st.write(fig)
-                # with col2:
-                #     fig2 = plt.figure(figsize=(10, 2))
-                #     fig2.set_facecolor('#d1d1e0')
-                #     plt.title("Mel-log-spectrogram")
-                #     librosa.display.specshow(Xdb, sr=sr, x_axis='time', y_axis='hz')
-                #     plt.gca().axes.get_yaxis().set_visible(False)
-                #     plt.gca().axes.spines["right"].set_visible(False)
-                #     plt.gca().axes.spines["left"].set_visible(False)
-                #     plt.gca().axes.spines["top"].set_visible(False)
-                #     st.write(fig2)
 
             if model_type == "mfccs":
                 st.markdown("## Emotion Classifications")
@@ -369,145 +319,23 @@ def main():
                                 plt.axis("off")
                                 st.write(fig4)
 
-            # if model_type == "mel-specs":
-            # st.markdown("## Predictions")
-            # st.warning("The model in test mode. It may not be working properly.")
-            # if st.checkbox("I'm OK with it"):
-            #     try:
-            #         with st.spinner("Wait... It can take some time"):
-            #             global tmodel
-            #             tmodel = load_model_cache("tmodel_all.h5")
-            #             fig, tpred = plot_melspec(path, tmodel)
-            #         col1, col2, col3 = st.columns(3)
-            #         with col1:
-            #             st.markdown("### Emotional spectrum")
-            #             dimg = Image.open("images/spectrum.png")
-            #             st.image(dimg, use_column_width=True)
-            #         with col2:
-            #             fig_, tpred_ = plot_melspec(path=path,
-            #                                         tmodel=tmodel,
-            #                                         three=True)
-            #             st.write(fig_, use_column_width=True)
-            #         with col3:
-            #             st.write(fig, use_column_width=True)
-            #     except Exception as e:
-            #         st.error(f"Error {e}, model is not loaded")
-
-
     elif website_menu == "Project description":
         import pandas as pd
         import plotly.express as px
         st.title("Project description")
-        st.subheader("GitHub")
-        link = '[GitHub repository of the web-application]' \
-               '(https://github.com/CyberMaryVer/speech-emotion-webapp)'
-        st.markdown(link, unsafe_allow_html=True)
-
-        st.subheader("Theory")
-        link = '[Theory behind - Medium article]' \
-               '(https://talbaram3192.medium.com/classifying-emotions-using-audio-recordings-and-python-434e748a95eb)'
-        st.markdown(link + ":clap::clap::clap: Tal!", unsafe_allow_html=True)
-        with st.expander("See Wikipedia definition"):
-            components.iframe("https://en.wikipedia.org/wiki/Emotion_recognition",
-                              height=320, scrolling=True)
 
         st.subheader("Dataset")
         txt = """
-            This web-application is a part of the final **Data Mining** project for **ITC Fellow Program 2020**. 
+            This web-application has capability to classify speech into 7 types of emotions. 
 
-            Datasets used in this project
-            * Crowd-sourced Emotional Mutimodal Actors Dataset (**Crema-D**)
-            * Ryerson Audio-Visual Database of Emotional Speech and Song (**Ravdess**)
-            * Surrey Audio-Visual Expressed Emotion (**Savee**)
-            * Toronto emotional speech set (**Tess**)    
+            Datasets that can be used are children's audio clips to test their emotions over a period of time.
+            Parents can then use this information to evaluate emotions of children through a day.      
             """
         st.markdown(txt, unsafe_allow_html=True)
 
-        df = pd.read_csv("df_audio.csv")
-        fig = px.violin(df, y="source", x="emotion4", color="actors", box=True, points="all", hover_data=df.columns)
-        st.plotly_chart(fig, use_container_width=True)
-
-        st.subheader("FYI")
-        st.write("Since we are currently using a free tier instance of AWS, "
-                 "we disabled mel-spec and ensemble models.\n\n"
-                 "If you want to try them we recommend to clone our GitHub repo")
-        st.code("git clone https://github.com/CyberMaryVer/speech-emotion-webapp.git", language='bash')
-
-        st.write("After that, just uncomment the relevant sections in the app.py file "
-                 "to use these models:")
-
-    # elif website_menu == "Our team":
-    #     st.subheader("Our team")
-    #     st.balloons()
-    #     col1, col2 = st.columns([3, 2])
-    #     with col1:
-    #         st.info("maria.s.startseva@gmail.com")
-    #         st.info("talbaram3192@gmail.com")
-    #         st.info("asherholder123@gmail.com")
-    #     with col2:
-    #         liimg = Image.open("images/LI-Logo.png")
-    #         st.image(liimg)
-    #         st.markdown(f""":speech_balloon: [Maria Startseva](https://www.linkedin.com/in/maria-startseva)""",
-    #                     unsafe_allow_html=True)
-    #         st.markdown(f""":speech_balloon: [Tal Baram](https://www.linkedin.com/in/tal-baram-b00b66180)""",
-    #                     unsafe_allow_html=True)
-    #         st.markdown(f""":speech_balloon: [Asher Holder](https://www.linkedin.com/in/asher-holder-526a05173)""",
-    #                     unsafe_allow_html=True)
-
-    # elif website_menu == "Leave feedback":
-    #     st.subheader("Leave feedback")
-    #     user_input = st.text_area("Your feedback is greatly appreciated")
-    #     user_name = st.selectbox("Choose your personality", ["checker1", "checker2", "checker3", "checker4"])
-
-    #     if st.button("Submit"):
-    #         st.success(f"Message\n\"\"\"{user_input}\"\"\"\nwas sent")
-
-    #         if user_input == "log123456" and user_name == "checker4":
-    #             with open("log0.txt", "r", encoding="utf8") as f:
-    #                 st.text(f.read())
-    #         elif user_input == "feedback123456" and user_name == "checker4":
-    #             with open("log.txt", "r", encoding="utf8") as f:
-    #                 st.text(f.read())
-    #         else:
-    #             log_file(user_name + " " + user_input)
-    #             thankimg = Image.open("images/sticky.png")
-    #             st.image(thankimg)
 
     else:
         pass
-
-        # import requests
-        # import json
-
-        # url = 'http://api.quotable.io/random'
-        # if st.button("get random mood"):
-        #     with st.container():
-        #         col1, col2 = st.columns(2)
-        #         n = np.random.randint(1, 1000, 1)[0]
-        #         with col1:
-        #             quotes = {"Good job and almost done": "checker1",
-        #                       "Great start!!": "checker2",
-        #                       "Please make corrections base on the following observation": "checker3",
-        #                       "DO NOT train with test data": "folk wisdom",
-        #                       "good work, but no docstrings": "checker4",
-        #                       "Well done!": "checker3",
-        #                       "For the sake of reproducibility, I recommend setting the random seed": "checker1"}
-        #             if n % 5 == 0:
-        #                 a = np.random.choice(list(quotes.keys()), 1)[0]
-        #                 quote, author = a, quotes[a]
-        #             else:
-        #                 try:
-        #                     r = requests.get(url=url)
-        #                     text = json.loads(r.text)
-        #                     quote, author = text['content'], text['author']
-        #                 except Exception as e:
-        #                     a = np.random.choice(list(quotes.keys()), 1)[0]
-        #                     quote, author = a, quotes[a]
-        #             st.markdown(f"## *{quote}*")
-        #             st.markdown(f"### ***{author}***")
-        #         with col2:
-        #             st.image(image=f"https://picsum.photos/800/600?random={n}")
-
 
 if __name__ == '__main__':
     main()
