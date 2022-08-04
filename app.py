@@ -165,7 +165,7 @@ def main():
         st.sidebar.subheader("Model")
         model_type = st.sidebar.selectbox("Prediction approach ?", ("MFCCS", ""))
         em3 = em6 = em7 = gender = False
-        st.sidebar.subheader("Number of Emotions to be Classified")
+        st.sidebar.subheader("Settings")
 
         st.markdown("## Upload the file")
         with st.container():
