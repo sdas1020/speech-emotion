@@ -122,6 +122,7 @@ def plot_polar(fig, predictions=TEST_PRED, categories=TEST_CAT,
     # color_sector = "grey"
 
     N = len(predictions)
+    st.write(N)
     ind = predictions.argmax()
 
     COLOR = color_sector = colors[categories[ind]]
