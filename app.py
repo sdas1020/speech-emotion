@@ -294,22 +294,7 @@ def main():
                             st.write(fig3)
                     with col4:
                         if gender:
-                            with st.spinner('Wait for it...'):
-                                gmodel = load_model("model_mw.h5")
-                                gmfccs = get_mfccs(path, gmodel.input_shape[-1])
-                                gmfccs = gmfccs.reshape(1, *gmfccs.shape)
-                                gpred = gmodel.predict(gmfccs)[0]
-                                gdict = [["female", "woman.png"], ["male", "man.png"]]
-                                ind = gpred.argmax()
-                                txt = "Predicted gender: " + gdict[ind][0]
-                                img = Image.open("images/" + gdict[ind][1])
-
-                                fig4 = plt.figure(figsize=(3, 3))
-                                fig4.set_facecolor('#d1d1e0')
-                                plt.title(txt)
-                                plt.imshow(img)
-                                plt.axis("off")
-                                st.write(fig4)
+                            pass
 
     elif website_menu == "Project description":
         import pandas as pd
