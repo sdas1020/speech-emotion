@@ -298,18 +298,11 @@ def main():
                         if gender:
                             pass
                 with st.container():
-                    i = 0 
-                    if i == 0 :
-                        st.write(i, 
-                        get_title(data3, CAT3).split(":")[1].split("-")[0],
-                        get_title(pred, CAT6).split(":")[1].split("-")[0],
-                        get_title(pred_, CAT7).split(":")[1].split("-")[0])
-                    else :
-                        st.write(i, 
-                        get_title(data3, CAT3).split(":")[1].split("-")[0],
-                        get_title(pred, CAT6).split(":")[1].split("-")[0],
-                        get_title(pred_, CAT7).split(":")[1].split("-")[0])
-                    i = i+1                             
+                    
+                    if get_title(data3, CAT3).split(":")[1].split("-")[0] == "negative" and 
+                    get_title(pred, CAT6).split(":")[1].split("-")[0] == "angry" and 
+                    get_title(pred_, CAT7).split(":")[1].split("-")[0]) == "disgust":
+                        st.write("Child is undergoing anxiety and stress ")
 
     elif website_menu == "Project description":
         import pandas as pd
