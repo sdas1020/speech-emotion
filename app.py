@@ -212,7 +212,7 @@ def main():
                     plt.gca().axes.spines["bottom"].set_visible(False)
                     plt.gca().axes.set_facecolor('#d1d1e0')
                     # st.write(fig)
-                    image = Image.open('child.jpg')
+                    image = Image.open('images/child.jpg')
                     st.image(image, caption='Emotion of Childrens')
                 else:
                     pass
