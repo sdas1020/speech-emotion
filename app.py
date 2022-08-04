@@ -231,8 +231,8 @@ def main():
             #         st.write("Error while loading the file")
 
         if model_type == "mfccs":
-            #em3 = st.sidebar.checkbox("3 emotions", True)
-            #em6 = st.sidebar.checkbox("6 emotions", True)
+            em3 = st.sidebar.checkbox("3 emotions", True)
+            em6 = st.sidebar.checkbox("6 emotions", True)
             em7 = st.sidebar.checkbox("7 emotions")
             #gender = st.sidebar.checkbox("gender")
 
