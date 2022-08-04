@@ -274,7 +274,7 @@ def main():
         #         st.success(COLOR_DICT)
 
         if audio_file is not None:
-            st.markdown("## Analyzing...")
+            st.markdown("## Analyzing Audio Data...")
             if not audio_file == "test":
                 st.sidebar.subheader("Audio file")
                 file_details = {"Filename": audio_file.name, "FileSize": audio_file.size}
@@ -292,16 +292,16 @@ def main():
                     plt.gca().axes.spines["left"].set_visible(False)
                     plt.gca().axes.spines["top"].set_visible(False)
                     st.write(fig)
-                with col2:
-                    fig2 = plt.figure(figsize=(10, 2))
-                    fig2.set_facecolor('#d1d1e0')
-                    plt.title("Mel-log-spectrogram")
-                    librosa.display.specshow(Xdb, sr=sr, x_axis='time', y_axis='hz')
-                    plt.gca().axes.get_yaxis().set_visible(False)
-                    plt.gca().axes.spines["right"].set_visible(False)
-                    plt.gca().axes.spines["left"].set_visible(False)
-                    plt.gca().axes.spines["top"].set_visible(False)
-                    st.write(fig2)
+                # with col2:
+                #     fig2 = plt.figure(figsize=(10, 2))
+                #     fig2.set_facecolor('#d1d1e0')
+                #     plt.title("Mel-log-spectrogram")
+                #     librosa.display.specshow(Xdb, sr=sr, x_axis='time', y_axis='hz')
+                #     plt.gca().axes.get_yaxis().set_visible(False)
+                #     plt.gca().axes.spines["right"].set_visible(False)
+                #     plt.gca().axes.spines["left"].set_visible(False)
+                #     plt.gca().axes.spines["top"].set_visible(False)
+                #     st.write(fig2)
 
             if model_type == "mfccs":
                 st.markdown("## Predictions")
