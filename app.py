@@ -297,13 +297,15 @@ def main():
                     with col4:
                         if gender:
                             pass
+                with st.container():
+                    st.write(data3, pred, pred_)
 
     elif website_menu == "Project description":
         import pandas as pd
         import plotly.express as px
         st.title("Project description")
 
-        st.subheader("Dataset")
+        #st.subheader("Project Description")
         txt = """
             This web-application has capability to classify speech into 7 types of emotions i.e. 'fear', 'disgust', 'neutral', 'happy', 'sad', 'surprise', 'angry'. 
 
