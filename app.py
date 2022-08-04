@@ -36,13 +36,6 @@ TEST_PRED = np.array([.3, .3, .4, .1, .6, .9, .1])
 
 # page settings
 st.set_page_config(page_title="SER web-app", page_icon=":speech_balloon:", layout="wide")
-# COLOR = "#1f1f2e"
-# BACKGROUND_COLOR = "#d1d1e0"
-
-
-# @st.cache(hash_funcs={tf_agents.utils.object_identity.ObjectIdentityDictionary: load_model})
-# def load_model_cache(model):
-#     return load_model(model)
 
 # @st.cache
 def log_file(txt=None):
@@ -55,8 +48,7 @@ def log_file(txt=None):
 def save_audio(file):
     if file.size > 4000000:
         return 1
-    # if not os.path.exists("audio"):
-    #     os.makedirs("audio")
+
     folder = "audio"
     datetoday = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     # clear the folder to avoid storage overload
@@ -119,7 +111,7 @@ def color_dict(coldict=COLOR_DICT):
 @st.cache
 def plot_polar(fig, predictions=TEST_PRED, categories=TEST_CAT,
                title="TEST", colors=COLOR_DICT):
-    # color_sector = "grey"
+    
 
     N = len(predictions)
     st.write(N)
@@ -332,8 +324,6 @@ def main():
             Parents can then use this information to evaluate emotions of children through a day.      
             """
         st.markdown(txt, unsafe_allow_html=True)
-
-
     else:
         pass
 
