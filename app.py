@@ -164,7 +164,7 @@ def main():
 
     if website_menu == "Emotion Recognition":
         st.sidebar.subheader("Model")
-        model_type = st.sidebar.selectbox("How would you like to predict?", ("mfccs", "mel-specs"))
+        model_type = st.sidebar.selectbox("How would you like to predict?", ("mfccs"))
         em3 = em6 = em7 = gender = False
         st.sidebar.subheader("Settings")
 
@@ -231,10 +231,10 @@ def main():
             #         st.write("Error while loading the file")
 
         if model_type == "mfccs":
-            em3 = st.sidebar.checkbox("3 emotions", True)
-            em6 = st.sidebar.checkbox("6 emotions", True)
+            #em3 = st.sidebar.checkbox("3 emotions", True)
+            #em6 = st.sidebar.checkbox("6 emotions", True)
             em7 = st.sidebar.checkbox("7 emotions")
-            gender = st.sidebar.checkbox("gender")
+            #gender = st.sidebar.checkbox("gender")
 
         elif model_type == "mel-specs":
             st.sidebar.warning("This model is temporarily disabled")
