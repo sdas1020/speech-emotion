@@ -222,6 +222,30 @@ def main():
                     st.write(fig)
                 else:
                     pass
+        with st.container():
+            col2 = st.columns(1)
+                        with col2:
+                if audio_file is not None:
+                    fig = plt.figure(figsize=(10, 2))
+                    fig.set_facecolor('#d1d1e0')
+                    plt.title("Wave-form")
+                    librosa.display.waveplot(wav, sr=24100)
+                    plt.gca().axes.get_yaxis().set_visible(False)
+                    plt.gca().axes.get_xaxis().set_visible(False)
+                    plt.gca().axes.spines["right"].set_visible(False)
+                    plt.gca().axes.spines["left"].set_visible(False)
+                    plt.gca().axes.spines["top"].set_visible(False)
+                    plt.gca().axes.spines["bottom"].set_visible(False)
+                    plt.gca().axes.set_facecolor('#d1d1e0')
+                    st.write(fig)
+                else:
+                    pass
+
+
+
+
+
+            
             #     st.write("Record audio file")
             #     if st.button('Record'):
             #         with st.spinner(f'Recording for 5 seconds ....'):
@@ -304,7 +328,7 @@ def main():
                 #     st.write(fig2)
 
             if model_type == "mfccs":
-                st.markdown("## Emotion Classifications Predictions")
+                st.markdown("## Emotion Classifications")
                 with st.container():
                     col1, col2, col3, col4 = st.columns(4)
                     mfccs = get_mfccs(path, model.input_shape[-1])
