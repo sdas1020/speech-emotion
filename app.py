@@ -158,14 +158,14 @@ def main():
     with st.sidebar:
         st.image(side_img, width=300)
     st.sidebar.subheader("Menu")
-    website_menu = st.sidebar.selectbox("Menu", ("Emotion Recognition", "Project description"))
+    website_menu = st.sidebar.selectbox("Solution Categories", ("Emotion Recognition", "Project description"))
     st.set_option('deprecation.showfileUploaderEncoding', False)
 
     if website_menu == "Emotion Recognition":
         st.sidebar.subheader("Model")
-        model_type = st.sidebar.selectbox("How would you like to predict?", ("mfccs", ""))
+        model_type = st.sidebar.selectbox("Prediction approach ?", ("MFCCS", ""))
         em3 = em6 = em7 = gender = False
-        st.sidebar.subheader("Settings")
+        st.sidebar.subheader("Number of Emotions to be Classified")
 
         st.markdown("## Upload the file")
         with st.container():
