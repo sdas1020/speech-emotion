@@ -224,7 +224,7 @@ def main():
                     pass
         with st.container():
             col2 = st.columns(1)
-                        with col2:
+            with col2:
                 if audio_file is not None:
                     fig = plt.figure(figsize=(10, 2))
                     fig.set_facecolor('#d1d1e0')
