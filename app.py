@@ -163,7 +163,7 @@ def main():
 
     if website_menu == "Emotion Recognition":
         st.sidebar.subheader("Model")
-        model_type = st.sidebar.selectbox("Prediction approach ?", ("MFCCS", ""))
+        model_type = st.sidebar.selectbox("Prediction approach ?", ("mfccs", ""))
         em3 = em6 = em7 = gender = False
         st.sidebar.subheader("Settings")
 
