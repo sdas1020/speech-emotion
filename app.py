@@ -219,7 +219,7 @@ def main():
                     plt.gca().axes.spines["top"].set_visible(False)
                     plt.gca().axes.spines["bottom"].set_visible(False)
                     plt.gca().axes.set_facecolor('#d1d1e0')
-                    st.write(fig)
+                    # st.write(fig)
                 else:
                     pass
             
