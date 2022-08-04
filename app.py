@@ -168,7 +168,7 @@ def main():
         em3 = em6 = em7 = gender = False
         st.sidebar.subheader("No of Emotions")
 
-        st.markdown("## Upload the file")
+        st.markdown("## Upload Audio File")
         with st.container():
             col1, col2 = st.columns(2)
             # audio_file = None
