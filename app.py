@@ -298,7 +298,9 @@ def main():
                         if gender:
                             pass
                 with st.container():
-                    st.write(get_title(data3, CAT3), get_title(pred, CAT6), get_title(pred_, CAT7))
+                    st.write(get_title(data3, CAT3).split("-")[1])
+                    st.write(get_title(pred, CAT6).split("-")[1])
+                    st.write(get_title(pred_, CAT7).split("-")[1])
 
     elif website_menu == "Project description":
         import pandas as pd
