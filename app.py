@@ -297,9 +297,9 @@ def main():
                     with col4:
                         if gender:
                             pass
-                with st.container():
-                    if (get_title(data3, CAT3).split(":")[1].split("-")[0].strip() == "negative") and (get_title(pred, CAT6).split(":")[1].split("-")[0].strip() == "angry") and ((get_title(pred_, CAT7).split(":")[1].split("-")[0].strip()) == "disgust") or ((get_title(pred_, CAT7).split(":")[1].split("-")[0].strip()) == "fear") or ((get_title(pred_, CAT7).split(":")[1].split("-")[0].strip()) == "angry") :
-                        st.write("## Child is undergoing anxiety and stress. Please reach out to him or consult a BH specialist.")
+                # with st.container():
+                #     if (get_title(data3, CAT3).split(":")[1].split("-")[0].strip() == "negative") and (get_title(pred, CAT6).split(":")[1].split("-")[0].strip() == "angry") and ((get_title(pred_, CAT7).split(":")[1].split("-")[0].strip()) == "disgust") or ((get_title(pred_, CAT7).split(":")[1].split("-")[0].strip()) == "fear") or ((get_title(pred_, CAT7).split(":")[1].split("-")[0].strip()) == "angry") :
+                #         st.write("## Child is undergoing anxiety and stress. Please reach out to him or consult a BH specialist.")
 
     elif website_menu == "Project description":
         import pandas as pd
